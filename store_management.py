@@ -28,39 +28,69 @@ class Product:
         self.welcome_message ="<<<Welcome To Store Management System>>>"
         print(self.welcome_message)
         self.path =path
-        
 
-        
-    def store_operation(self,name,price,quantity): #store name price and quantity of the store
-        self.name =name
-        self.price =price      
-        self.quantity =quantity
-        
-        with open(self.path,"a+") as file_obj:   #store the data in the file
-            file_obj.write(self.name)
-            file_obj.write(" ,")            
-            file_obj.write(self.price)
-            file_obj.write(" ,")
-            file_obj.write(self.quantity)
-            file_obj.write("\n")
                 
-    def add_product(self):   #add new product in the file
-        pass
+    def add_product(self, name, price, quantity):  # Add a new product to the file
+        self.name = name
+        self.price = price
+        self.quantity = quantity
 
-    def delete(self): #delete exiting product from the file
-        pass
+        try:
+            with open(self.path, "a+") as file_obj:  # Store the data in the file
+                file_obj.write(f"{self.name}, {self.price}, {self.quantity}\n")
 
-    def read_product(self):  #read product from the file
-        pass
+        except Exception as e:
+            print(f"Exception in add_product: {e}")  # Proper exception handling
+
     
-    
+    def delete_product(self,delete_data): #delete exiting product from the file
+        
+        try:
+            with open(self.path,"r+") as file_object:
+                data=file_object.readline()
+            
+            with open(self.path,"w+") as file_obj:
+                for items in data:
+                    if not delete_data in items:
+                        file_obj.write(items)
+
+        except Exception as e:
+            print(f"Exception in add_product: {e}")
+
+
+    def read_product(self,user_search):  #read product from the file
+        
+        try:
+            with open(self.path,"r+") as file_object:
+                data=file_object.readline()
+        
+        
+            for items in data:
+                if user_search in items:
+                    return items
+
+        except Exception as e:
+            print(f"Exception in add_product: {e}")
+
+
     
         
 #---------Main-Function-------------------------------------   
     
 def main(): #main function
     product_obj =Product("store_management.txt") #make a object of the product class
-    product_obj.store_operation("sushil","2000","12") 
+
+    option =input("Type what you want to do. (add / delete / list) :")
+    if option=="add":
+        product_obj.add_product(name="Sushil", price=1000, quantity=10)
+
+    elif option=="delete":
+        product_obj.delete_product(delete_data='sushil')
+
+    elif option=="list":
+        user_result=product_obj.read_product(user_search="Sushil")
+        print(user_result)
+
     
 
 main() #call the main function
