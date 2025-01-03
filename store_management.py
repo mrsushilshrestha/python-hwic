@@ -22,6 +22,7 @@
 # product price => 200
 # product quantity => 2
 
+#--------------------Store-Management-System----------------------------------
 class Product:
     def __init__(self,path):
         self.welcome_message ="<<<Welcome To Store Management System>>>"
@@ -52,7 +53,11 @@ class Product:
     def read_product(self):  #read product from the file
         pass
     
+    
+    
         
+#---------Main-Function-------------------------------------   
+    
 def main(): #main function
     product_obj =Product("store_management.txt") #make a object of the product class
     product_obj.store_operation("sushil","2000","12") 
