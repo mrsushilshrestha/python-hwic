@@ -1,27 +1,3 @@
-
-# ****Example for how it will work when run****
-# Type what you want to do. (add / delete / list) : add
-# product name: garcia
-# product price: 200
-# product quantity: 2
-# Product Added successfully!
-
-
-# Type what you want to do. (add / delete / list) : delete
-# product name: garcia
-# Product deleted successfully!
-
-# Type what you want to do. (add / delete / list) : list
-# product name => alex albon
-# product price => 58000
-# product quantity => 55
-# product name => lewis hamilton
-# product price => 88000
-# product quantity => 100
-# product name => garcia
-# product price => 200
-# product quantity => 2
-
 #--------------------Store-Management-System----------------------------------
 class Product:
     def __init__(self,path,message):
@@ -69,11 +45,9 @@ class Product:
             with open(self.path,"r+") as file_object:
                 lines=file_object.readlines()
         
-        
             for line in lines:
                 if user_search in line:
                     return (line.strip())
-                
 
         except Exception as e:
             print(f"Exception in add_product: {e}")
@@ -137,6 +111,4 @@ def main(): #main function
             pass
                 
                 
-
-
 main() #call the main function

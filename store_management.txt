@@ -1,8 +1,3 @@
 ball, 30, 1
-sushil, 12, 12
 banana, 12, 12
-sushil, 12, 12
-sushil, hari , ss
-sushil, ss, ss
-hari, 12, 12
-apple, 2, w
+cat, 2000, 1
