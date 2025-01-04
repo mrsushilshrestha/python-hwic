@@ -18,6 +18,7 @@ Type what you want to do. (add / delete / list) : delete
 product name: garcia
 Product deleted successfully!
 
+
 Type what you want to do. (add / delete / list) : list
 product name => alex albon
 product price => 58000
@@ -28,3 +29,4 @@ product quantity => 100
 product name => garcia
 product price => 200
 product quantity => 2
+
