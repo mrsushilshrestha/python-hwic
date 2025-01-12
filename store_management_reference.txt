@@ -1,0 +1,32 @@
+***You can search for solutions and references anywhere but it will be better to try it out on your own first. There wont be any grading for this as this is only for practicing purpose. Though its not compulsary to complete it but atleast try it as it will help you learn something. Happy coding and happy new year***
+
+Q) Create a simple Inventory system that adds product details to a file after retrieving the product names from user input.
+Requirements:
+1) Use class, objects and functions for adding, listing and deleting products from the file
+2) Product class will have attributes like name, price, and quantity
+3) Use exception handling wherever necessary.
+4) Push these code to a new repository in your own github and add shirajpng@gmail.com as collaborator so that i can see your progress.
+
+****Example for how it will work when run****
+Type what you want to do. (add / delete / list) : add
+product name: garcia
+product price: 200
+product quantity: 2
+Product Added successfully!
+
+Type what you want to do. (add / delete / list) : delete
+product name: garcia
+Product deleted successfully!
+
+
+Type what you want to do. (add / delete / list) : list
+product name => alex albon
+product price => 58000
+product quantity => 55
+product name => lewis hamilton
+product price => 88000
+product quantity => 100
+product name => garcia
+product price => 200
+product quantity => 2
+

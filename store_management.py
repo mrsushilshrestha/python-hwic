@@ -1,31 +1,7 @@
-
-# ****Example for how it will work when run****
-# Type what you want to do. (add / delete / list) : add
-# product name: garcia
-# product price: 200
-# product quantity: 2
-# Product Added successfully!
-
-
-# Type what you want to do. (add / delete / list) : delete
-# product name: garcia
-# Product deleted successfully!
-
-# Type what you want to do. (add / delete / list) : list
-# product name => alex albon
-# product price => 58000
-# product quantity => 55
-# product name => lewis hamilton
-# product price => 88000
-# product quantity => 100
-# product name => garcia
-# product price => 200
-# product quantity => 2
-
 #--------------------Store-Management-System----------------------------------
 class Product:
-    def __init__(self,path):
-        self.welcome_message ="<<<Welcome To Store Management System>>>"
+    def __init__(self,path,message):
+        self.welcome_message = message
         print(self.welcome_message)
         self.path =path
 
@@ -43,54 +19,105 @@ class Product:
             print(f"Exception in add_product: {e}")  # Proper exception handling
 
     
-    def delete_product(self,delete_data): #delete exiting product from the file
-        
+    def delete_product(self, delete_data):  # Delete an existing product from the file
         try:
-            with open(self.path,"r+") as file_object:
-                data=file_object.readline()
-            
-            with open(self.path,"w+") as file_obj:
-                for items in data:
-                    if not delete_data in items:
-                        file_obj.write(items)
+            with open(self.path, "r") as file_object:
+                lines = file_object.readlines()  # Read all lines from the file
 
+            with open(self.path, "w") as file_object:
+                found = False
+                for line in lines:
+                    if delete_data not in line:
+                        file_object.write(line)  # Write back lines that do not match
+                    else:
+                        found = True
+                if found:
+                    print("Product deleted successfully!")
+                else:
+                    print("Product not found!")
         except Exception as e:
-            print(f"Exception in add_product: {e}")
+            print(f"Exception in delete_product: {e}")
 
 
     def read_product(self,user_search):  #read product from the file
         
         try:
             with open(self.path,"r+") as file_object:
+<<<<<<< HEAD
                 data=file_object.readline()
                 
         
             for items in data:
                 if user_search in items:
                     return items
+=======
+                lines=file_object.readlines()
+        
+            for line in lines:
+                if user_search in line:
+                    return (line.strip())
+>>>>>>> d4a9969406224bd76ab42e4030196c5d3075cc89
 
         except Exception as e:
             print(f"Exception in add_product: {e}")
 
 
-    
-        
-#---------Main-Function-------------------------------------   
-    
+#---------Main-Function-------------------------------------  
 def main(): #main function
-    product_obj =Product("store_management.txt") #make a object of the product class
+    path = "store_management.txt" #path for store the data in file
 
-    option =input("Type what you want to do. (add / delete / list) :")
-    if option=="add":
-        product_obj.add_product(name="Sushil", price=1000, quantity=10)
+    welcome_message = """
+    <<<-----Welcome To Store Management System----->>>"""   #welcome message for top
 
-    elif option=="delete":
-        product_obj.delete_product(delete_data='sushil')
-
-    elif option=="list":
-        user_result=product_obj.read_product(user_search="Sushil")
-        print(user_result)
-
+    message ="""
+    <<<Enter The Option [1,2,3] To Perform Operation>>>  
+    1.ADD
+    2.DELETE
+    3.READ 
+    4.EXIT
+    """ #message for Input Option
     
+    command ="1" 
+    while command=="1" :
+        product_obj =Product(path,welcome_message) #make a object of the product class
+        
+        option = input(message)
+        
+        if option == "1" or option == "add":
+            print("You selected add.")
+            name =input("Enter the Name: ")
+            price =input("Enter the Price: ")
+            quantity =input("Enter the Quantity: ")
+            product_obj.add_product(name, price, quantity)
 
+        elif option == "2" or option == "delete":
+            print("You selected delete.")
+            delete_data =input("Enter the Name for delete: ")
+            product_obj.delete_product(delete_data)
+
+        elif option == "3" or option == "read":
+            print("You selected read.")
+            user_search = input("Enter the Name For Search: ")
+            user_result=product_obj.read_product(user_search)
+            print(user_result)
+            
+        elif option == "4" or option == "exit":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid Option !!!")
+            continue
+        
+        
+        system_option =input("Do You Want To Continue 1/0 for yes or no ")
+        if system_option=="1" or system_option=="yes":
+            command=="1"
+        elif system_option=="0" or system_option=="no":
+            print("System Out...")
+            exit()
+        else:
+            # print("Please Select Valid Option[yes/no]")
+            pass
+                
+                
 main() #call the main function
