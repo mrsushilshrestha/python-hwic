@@ -63,7 +63,7 @@ class Product:
         try:
             with open(self.path,"r+") as file_object:
                 data=file_object.readline()
-        
+                
         
             for items in data:
                 if user_search in items:
