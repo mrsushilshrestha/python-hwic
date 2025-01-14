@@ -43,20 +43,11 @@ class Product:
         
         try:
             with open(self.path,"r+") as file_object:
-<<<<<<< HEAD
-                data=file_object.readline()
-                
-        
-            for items in data:
-                if user_search in items:
-                    return items
-=======
                 lines=file_object.readlines()
         
             for line in lines:
                 if user_search in line:
                     return (line.strip())
->>>>>>> d4a9969406224bd76ab42e4030196c5d3075cc89
 
         except Exception as e:
             print(f"Exception in add_product: {e}")
