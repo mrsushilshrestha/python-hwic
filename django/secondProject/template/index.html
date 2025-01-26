@@ -1,0 +1,125 @@
+{% extends 'base.html' %}{%load static%} 
+
+<!-- Custom CSS -->
+    {% block style %} <link rel="stylesheet" href="{% static 'css/index.css' %}" />{% endblock %}
+
+<!--title-->
+    {% block title %}Home{% endblock %}
+<!--carousel-->
+{% block template %}
+<div
+  id="carouselExampleControlsNoTouching"
+  class="carousel slide"
+  data-bs-touch="true"
+  data-bs-interval="4000"
+>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-image-container">
+        <img
+          src="https://img.lazcdn.com/us/domino/e17b30ee-a069-4f80-813a-9105cbeda76e_NP-1976-688.jpg_2200x2200q80.jpg"
+          class="d-block w-100 carousel-image"
+          alt="first-image"
+        />
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-image-container">
+        <img
+          src="https://img.lazcdn.com/us/domino/50b532d0-18b6-4d25-a6a4-9d97fb0b0e89_NP-1976-688.jpg_2200x2200q80.jpg"
+          class="d-block w-100 carousel-image"
+          alt="second-image"
+        />
+        <div class="carousel-overlay">
+          <h3 class="carousel-text">Exclusive Discounts Await!</h3>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-image-container">
+        <img
+          src="https://img.lazcdn.com/us/domino/1d6e7857-2368-46b5-9e39-4379971ad2dd_NP-1976-688.jpg_2200x2200q80.jpg"
+          class="d-block w-100 carousel-image"
+          alt="third-image"
+        />
+        <div class="carousel-overlay">
+          <h3 class="carousel-text">Hurry Up! Limited Time Offers!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleControlsNoTouching"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleControlsNoTouching"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!--card-->
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card hover-card" style="width: 100%">
+        <img
+          src="https://img.drz.lazcdn.com/static/np/p/f2eedb6d5c61cd8b000b0ad7db719d9f.jpg_400x400q80.jpg"
+          class="card-img-top"
+          alt="product-1"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Fast Charging Cable</h5>
+          <p class="card-text">
+            Experience crystal-clear audio with our premium wireless earbuds.
+          </p>
+          <a href="#" class="btn btn-primary w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card hover-card" style="width: 100%">
+        <img
+          src="https://img.drz.lazcdn.com/g/kf/Sd1f463ae27f143d1ba93f1c81d5a4ce2V.jpg_400x400q80.jpg"
+          class="card-img-top"
+          alt="product-2"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Wireless Earbuds</h5>
+          <p class="card-text">
+            Experience crystal-clear audio with our premium wireless earbuds.
+          </p>
+          <a href="#" class="btn btn-primary w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card hover-card" style="width: 100%">
+        <img
+          src="https://img.drz.lazcdn.com/g/kf/Sd1f463ae27f143d1ba93f1c81d5a4ce2V.jpg"
+          class="card-img-top"
+          alt="product-3"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Smartwatch</h5>
+          <p class="card-text">
+            Stay connected on the go with this lightweight, stylish smartwatch.
+          </p>
+          <a href="#" class="btn btn-primary w-100">View Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
